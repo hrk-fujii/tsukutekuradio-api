@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       released_at: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
         allowNull: false
       },
       createdAt: {
