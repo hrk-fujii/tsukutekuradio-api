@@ -2,6 +2,8 @@ var express = require('express');
 var middleware = require('./middlewares/api1');
 var sendError = require('../utils/sendError');
 
+var createController = require('../controllers/secureApi1/create')
+
 var router = express.Router();
 
 
@@ -9,9 +11,7 @@ var router = express.Router();
 router.use(middleware.auth);
 
 /* POST API */
-router.get('/create', function(req, res, next) {
-  res.render('index', { title: 'create' });
-});
+router.post('/create', createController);
 
 router.use((err, req, res, next) => {
   sendError(res, err);
