@@ -13,7 +13,7 @@ exports.auth = (req, res, next) => {
     // verify token
     jwt.verify(token, process.env.JWT_KEY, (err, info) => {
         if (err){
-            next('err.message');
+            next('authentication faild.');
         } else{
             req.userInfo = info;
             next();

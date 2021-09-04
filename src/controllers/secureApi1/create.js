@@ -7,6 +7,10 @@ module.exports = (req, res) => {
     Article.create(data).then((val) => {
         res.json({'success': true});
     }, (err) => {
-        sendError(res, err)
+        if (process.env.NODE_ENV === 'development') {
+            sendError(res, err);
+        } else {
+            sendError(res, 'create faild.');
+        }
     });
 }
