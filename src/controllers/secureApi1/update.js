@@ -3,7 +3,7 @@ var sendError = require('../../utils/sendError');
 
 // update article
 module.exports = (req, res) => {
-    const data = req.body.data;
+    const data = req.body;
     Article.update(
         {title: data.title, article: data.article, youtube_code: data.youtube_code, released_at: data.released_at},
         {where: {id: data.id}}
