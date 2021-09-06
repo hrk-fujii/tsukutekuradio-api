@@ -16,6 +16,7 @@ services:
   app:
     build: .
     container_name: node_tsukuteku_api
+    env_file: ./app.env
     environment:
       - DEBUG=app:*
     tty: true

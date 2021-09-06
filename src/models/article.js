@@ -16,9 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Article.init({
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-      
+      allowNull: false
     },
     article: DataTypes.TEXT,
     youtube_code: DataTypes.TEXT,
