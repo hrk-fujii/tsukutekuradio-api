@@ -6,7 +6,7 @@ services:
     environment:
       - TZ=Asia/Tokyo
     ports:
-      - '10403:3306'
+      - '10304:3306'
     volumes:
       - ./mysql/conf:/etc/mysql/conf.d/:ro
       - ./mysql/data:/var/lib/mysql
@@ -21,7 +21,7 @@ services:
       - DEBUG=app:*
     tty: true
     ports:
-      - '10401:3000'
+      - '10104:3000'
     volumes:
       - ./src:/app
     working_dir: /app
