@@ -10,7 +10,7 @@ module.exports = (req, res) => {
         data.released_at = new Date(data.released_at.toString());
     } catch (err) {
         if (process.env.NODE_ENV === 'development') {
-            sendError(res, err);
+            return sendError(res, err.message);
         } else {
             return sendError(res, 'create faild.');
         }

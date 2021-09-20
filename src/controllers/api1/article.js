@@ -3,7 +3,7 @@ var sendError = require('../../utils/sendError');
 
 // get article by id
 module.exports = (req, res) => {
-    const id = req.params.id;
+    const id = req.query.id;
     Article.findByPk(id).then((val) =>{
         res.json({'success': true, 'article': val});
     }, (err) => {
