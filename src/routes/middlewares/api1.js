@@ -1,4 +1,5 @@
 var jwt = require('jsonwebtoken');
+var User = require("../../models/user");
 
 // jwt auth
 exports.auth = (req, res, next) => {
@@ -15,8 +16,16 @@ exports.auth = (req, res, next) => {
         if (err){
             next('authentication faild.');
         } else{
-            req.userInfo = info;
-            next();
+            User.findByPk(info.id).then((val) => {
+                if (val) {
+                    req.userInfo = info;
+                    next();
+                } else {
+                    next('authentication faild.');
+                }
+            }, (err) => {
+                next('authentication faild.');
+            });
         }
     });
 }
